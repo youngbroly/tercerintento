@@ -1,0 +1,13 @@
+{
+    "dbName": "node-mssql-registration-login-api",
+    "dbConfig": {
+      "server": "leandro",
+      "options": {
+        "port": 1433,
+        "trustServerCertificate": true
+      },
+      "authentication": {
+        "type": "windows"
+      }
+    }
+  }

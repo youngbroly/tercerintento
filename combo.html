@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Consolas y Videojuegos</title>
+	<style>
+		/* Estilo ambientado a color negro y gris */
+		body {
+			background-color: #333;
+			color: #fff;
+			font-family: Arial, sans-serif;
+		}
+		
+		.combobox {
+			background-color: #444;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			width: 200px;
+		}
+		
+		.combobox option {
+			background-color: #444;
+			color: #fff;
+		}
+		
+		.tabla {
+			background-color: #444;
+			color: #fff;
+			border-collapse: collapse;
+			width: 80%;
+			margin: 20px auto;
+		}
+		
+		.tabla th, .tabla td {
+			border: 1px solid #fff;
+			padding: 10px;
+			text-align: left;
+		}
+		
+		.tabla th {
+			background-color: #555;
+		}
+	</style>
+</head>
+<body>
+	<h1>Consolas y Videojuegos</h1>
+	<select class="combobox" id="consola" onchange="mostrarJuegos(this.value)">
+		<option value="">Seleccione una consola</option>
+		<option value="ps4">PlayStation 4</option>
+		<option value="xboxone">Xbox One</option>
+		<option value="nintendo-switch">Nintendo Switch</option>
+		<option value="pc">PC</option>
+	</select>
+	
+	<div id="juegos"></div>
+	
+	<script>
+		function mostrarJuegos(consola) {
+			var juegos = "";
+			switch (consola) {
+				case "ps4":
+					juegos = [
+						{ nombre: "The Last of Us Part II", año: 2020 },
+						{ nombre: "God of War", año: 2018 },
+						{ nombre: "Uncharted 4: A Thief's End", año: 2016 },
+						{ nombre: "Horizon Zero Dawn", año: 2017 },
+						{ nombre: "Bloodborne", año: 2015 },
+						{ nombre: "The Witcher 3: Wild Hunt", año: 2015 },
+						{ nombre: "Call of Duty: Modern Warfare", año: 2019 },
+						{ nombre: "Red Dead Redemption 2", año: 2018 },
+						{ nombre: "Spider-Man", año: 2018 },
+						{ nombre: "Days Gone", año: 2019 }
+					];
+					break;
+				case "xboxone":
+					juegos = [
+						{ nombre: "Halo 5: Guardians", año: 2015 },
+						{ nombre: "Gears of War 4", año: 2016 },
+						{ nombre: "Forza Horizon 4", año: 2018 },
+						{ nombre: "Sea of Thieves", año: 2018 },
+						{ nombre: "Minecraft", año: 2014 },
+						{ nombre: "Overwatch", año: 2016 },
+						{ nombre: "Call of Duty: Modern Warfare", año: 2019 },
+						{ nombre: "Destiny 2", año: 2017 },
+						{ nombre: "Tom Clancy's Ghost Recon: Wildlands", año: 2017 },
+						{ nombre: "PlayerUnknown's Battlegrounds", año: 2017 }
+					];
+					break;
+				case "nintendo-switch":
+					juegos = [
+						{ nombre: "The Legend of Zelda: Breath of the Wild", año: 2017 },
+						{ nombre: "Super Mario Odyssey", año: 2017 },
+						{ nombre: "Super Smash Bros. Ultimate", año: 2018 },
+						{ nombre: "Mario Kart 8 Deluxe", año: 2017 },
+						{ nombre: "The Legend of Zelda: Link's Awakening", año: 2019 },
+						{ nombre: "Pokémon Sword and Shield", año: 2019 },
+						{ nombre: " Luigi's Mansion 3", año: 2019 },
+						{ nombre: "Astral Chain", año: 2019 },
+						{ nombre: "Xenoblade Chronicles 2", año: 2017 },
+						{ nombre: "Diablo III: Eternal Collection", año: 2018 }
+					];
+					break;
+                    case "pc":
+  juegos = [
+    { nombre: "The Elder Scrolls V: Skyrim", año: 2011 },
+    { nombre: "Grand Theft Auto V", año: 2013 },
+    { nombre: "Minecraft", año: 2011 },
+    { nombre: "PlayerUnknown's Battlegrounds", año: 2017 },
+    { nombre: "Fortnite", año: 2017 },
+    { nombre: "Overwatch", año: 2016 },
+    { nombre: "League of Legends", año: 2009 },
+    { nombre: "World of Warcraft", año: 2004 },
+    { nombre: "Diablo III", año: 2012 },
+    { nombre: "StarCraft II: Wings of Liberty", año: 2010 }
+  ];
+  break;
+default:
+  juegos = [];
+}
+
+var tabla = "<table class='tabla'>";
+tabla += "<tr><th>Nombre</th><th>Año de lanzamiento</th></tr>";
+
+for (var i = 0; i < juegos.length; i++) {
+  tabla += "<tr>";
+  tabla += "<td>" + juegos[i].nombre + "</td>";
+  tabla += "<td>" + juegos[i].año + "</td>";
+  tabla += "</tr>";
+}
+        }
+
+tabla += "</table>";
+
+document.getElementById("juegos").innerHTML = tabla;
